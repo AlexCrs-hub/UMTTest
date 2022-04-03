@@ -68,9 +68,8 @@ public class PasswordChecker {
         if (checkLength() == 20) {
             solveLengthMore();
         }
-        if (getPassword().length() == 6 || getPassword().length() == 20) {
-            solveEqualityLength();
-        }
+        solveEqualityOrInLength();
+        System.out.println(this.password);
         return this.numberOfChanges;
     }
 
@@ -220,10 +219,10 @@ public class PasswordChecker {
     }
 
 
-    /*solve the equality of bounds problem
+    /*solve the equality of bounds or length in bounds problem
     same idea of array of positions of characters which may be replaced if needed
     */
-    private void solveEqualityLength() {
+    private void solveEqualityOrInLength() {
         ArrayList<Integer> lowerPositions = new ArrayList<>();
         ArrayList<Integer> upperPositions = new ArrayList<>();
         ArrayList<Integer> digitPositions = new ArrayList<>();
@@ -336,4 +335,5 @@ public class PasswordChecker {
         }
         this.numberOfChanges++;
     }
+
 }
